@@ -1,9 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class DetectCollide : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
+    public void EndGame()
+    {
+        Debug.Log("Game over!");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,13 +21,5 @@ public class DetectCollide : MonoBehaviour
     void Update()
     {
         
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.transform.name == "Player")
-        {
-            Score.score += 10;
-        }
     }
 }
